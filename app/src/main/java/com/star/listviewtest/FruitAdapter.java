@@ -35,8 +35,8 @@ public class FruitAdapter extends ArrayAdapter<Fruit> {
             view = LayoutInflater.from(getContext()).inflate(mResourceId, parent, false);
 
             viewHolder = new ViewHolder();
-            viewHolder.mFruitImage = (ImageView) view.findViewById(R.id.fruit_image);
-            viewHolder.mFruitName = (TextView) view.findViewById(R.id.fruit_name);
+            viewHolder.mFruitImage = view.findViewById(R.id.fruit_image);
+            viewHolder.mFruitName = view.findViewById(R.id.fruit_name);
 
             view.setTag(viewHolder);
         } else {

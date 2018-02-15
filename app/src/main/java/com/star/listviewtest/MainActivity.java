@@ -2,8 +2,6 @@ package com.star.listviewtest;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -25,15 +23,12 @@ public class MainActivity extends AppCompatActivity {
 
         FruitAdapter fruitAdapter = new FruitAdapter(this, R.layout.fruit_item, mFruitList);
 
-        mListView = (ListView) findViewById(R.id.list_view);
+        mListView = findViewById(R.id.list_view);
         mListView.setAdapter(fruitAdapter);
 
-        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Fruit fruit = mFruitList.get(position);
-                Toast.makeText(MainActivity.this, fruit.getName(), Toast.LENGTH_LONG).show();
-            }
+        mListView.setOnItemClickListener((parent, view, position, id) -> {
+            Fruit fruit = mFruitList.get(position);
+            Toast.makeText(MainActivity.this, fruit.getName(), Toast.LENGTH_LONG).show();
         });
     }
 
